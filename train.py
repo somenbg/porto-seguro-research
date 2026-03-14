@@ -28,7 +28,7 @@ from prepare import load_data, evaluate, TIME_BUDGET
 
 HIDDEN_DIMS = [256, 128, 64]
 DROPOUT = 0.15
-LEARNING_RATE = 1e-3
+LEARNING_RATE = 0.0003
 WEIGHT_DECAY = 1e-4
 BATCH_SIZE = 2048
 ACTIVATION = "relu"
