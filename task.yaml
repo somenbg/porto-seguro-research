@@ -1,0 +1,33 @@
+task:
+  name: "porto-seguro"
+  description: >
+    Predict whether a driver will file an auto insurance claim next year.
+    Porto Seguro's Safe Driver Prediction — a notoriously hard binary
+    classification problem with extreme class imbalance (3.6% positive)
+    and anonymized features.
+
+dataset:
+  source: "data/train.csv"
+  prepare_script: "prepare.py"
+
+model:
+  train_script: "train.py"
+  editable_files: ["train.py"]
+  readonly_files: ["prepare.py"]
+  model_class: "tabular"
+
+evaluation:
+  metric: "val_gini"
+  direction: "maximize"
+  eval_command: "uv run train.py"
+
+budget:
+  time_limit_seconds: 60
+  max_experiments: unlimited
+
+platform:
+  device: auto
+
+constraints:
+  no_new_dependencies: true
+  no_modify_eval: true
